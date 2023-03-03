@@ -159,11 +159,15 @@ print(new_matrix)
 
 
 def split_into_chunks(input_list, chunk_size):
-    flattened_list = flatten(input_list)
+    flatten_list = []
+    for item in input_list:
+        for element in item:
+            flatten_list.append(element)
+
     new_list = []
-    for i in range(0, len(flattened_list), chunk_size):
+    for i in range(0, len(flatten_list), chunk_size):
         t = i
-        new_list.append(flattened_list[t:t+chunk_size])
+        new_list.append(flatten_list[t:t+chunk_size])
     return new_list
 
 nested_list = [[1, 2, 3], [4, 5], [6, 7], [8, 9, 10, 11]]
