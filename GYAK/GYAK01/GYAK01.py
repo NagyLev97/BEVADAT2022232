@@ -53,25 +53,28 @@ print(is_odd(list))
 #input parameters: input_list_1, input_list_2
 
 
-def element_wise_sum(input_list_1, input_list_2):
-    if len(input_list_1) >= len(input_list_2):
-        length = len(input_list_1)
+# def element_wise_sum(input_list_1, input_list_2):
+#     if len(input_list_1) >= len(input_list_2):
+#         length = len(input_list_1)
 
-        if len(input_list_1) > len(input_list_2):
-            for i in range(0, len(input_list_1) - len(input_list_2)):
-                input_list_2.append(0)
-    else:
-        length = len(input_list_2)
+#         if len(input_list_1) > len(input_list_2):
+#             for i in range(0, len(input_list_1) - len(input_list_2)):
+#                 input_list_2.append(0)
+#     else:
+#         length = len(input_list_2)
 
-        for i in range(0, len(input_list_2) - len(input_list_1)):
-                input_list_1.append(0)
+#         for i in range(0, len(input_list_2) - len(input_list_1)):
+#                 input_list_1.append(0)
 
    
-    wise_sum_list = []
-    for i in range(0, length):
-        wise_sum_list.append(input_list_1[i] + input_list_2[i])
+#     wise_sum_list = []
+#     for i in range(0, length):
+#         wise_sum_list.append(input_list_1[i] + input_list_2[i])
     
-    return wise_sum_list
+#     return wise_sum_list
+
+def element_wise_sum(input_list_1, input_list_2):
+    return [input_list_1[i] + input_list_2[i] for i in range(len(input_list_1))]
 
 list1 = [1, 2, 3, 4]
 list2 = [2, 4, 6, 5, 9]
