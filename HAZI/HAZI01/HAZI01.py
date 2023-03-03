@@ -6,7 +6,7 @@
 
 
 def subset(input_list, start_index, end_index):
-    return input_list[start_index:(end_index+1)]
+    return input_list[start_index:(end_index)]
 list = [0,1,2,3,4,5,6,7,8,9]
 
 print(subset(list, 0, 4))
@@ -131,11 +131,11 @@ print(reversed_list)
 #input parameters: input_list
 
 
-def remove_duplicates(input_list):
+def remove_tuplicates(input_list):
     return set(input_list)
 
 list = [1, 4, 2, 2, 5, 1]
-print(remove_duplicates(list))
+print(remove_tuplicates(list))
 
 
 #Create a function that transposes a nested list (matrix)
