@@ -132,7 +132,7 @@ print(reversed_list)
 
 
 def remove_duplicates(input_list):
-    return set(input_list)
+    return list(set(input_list))
 
 list = [1, 4, 2, 2, 5, 1]
 print(remove_duplicates(list))
@@ -161,7 +161,7 @@ print(new_matrix)
 def split_into_chunks(input_list, chunk_size):
     flatten_list = []
     for item in input_list:
-        flatten_list.append(element)
+        flatten_list.append(item)
 
     new_list = []
     for i in range(0, len(flatten_list), chunk_size):
