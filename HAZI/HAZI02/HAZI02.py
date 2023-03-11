@@ -136,4 +136,38 @@ def add_border(input_array: np.array) -> np.array:
     output_array[1:-1, 1:-1] = input_array
     return output_array
 
-print(add_border(np.array([[1,2],[3,4]])))
+#print(add_border(np.array([[1,2],[3,4]])))
+
+# Készíts egy olyan függvényt ami két dátum között felsorolja az összes napot és ezt adja vissza egy numpy array-ben. 
+# A fgv ként str vár paraméterként 'YYYY-MM' formában.
+# Be: '2023-03', '2023-04'  # mind a kettő paraméter str.
+# Ki: ['2023-03-01', '2023-03-02', .. , '2023-03-31',]
+# list_days()
+
+def list_days(start, end) -> np.array:
+    return np.arange(start, end, dtype='datetime64[D]')
+
+#print(list_days('2023-03', '2023-04'))
+
+# Írj egy fügvényt ami vissza adja az aktuális dátumot az alábbi formában: YYYY-MM-DD. Térjen vissza egy 'numpy.datetime64' típussal.
+# Be:
+# Ki: 2017-03-24
+# get_act_date()
+
+def get_act_date() -> str:
+    return np.datetime64('today', 'D')
+
+print(get_act_date())
+
+# Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:02:00 óta. Int-el térjen vissza
+# Be: 
+# Ki: másodpercben az idó, int-é kasztolva
+# sec_from_1970()
+
+def sec_from_1970() -> int:
+    now = np.datetime64('today', 'D')
+    past = np.datetime64('1970-01-01')
+    return int((now - past) / np.timedelta64(1, 's'))
+
+
+#print(sec_from_1970())
