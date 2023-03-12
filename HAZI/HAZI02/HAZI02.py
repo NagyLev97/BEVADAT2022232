@@ -24,7 +24,7 @@ def column_swap(input_array: np.array) -> np.array:
 # egyenlő elemszámúakra kell csak hogy működjön
 
 def compare_two_array(input_array1: np.array, input_array2: np.array) -> np.array:
-    return np.where(input_array1 == input_array2)[0]
+    return np.where(np.equal(input_array1, input_array2))[0]
 
 #print(compare_two_array(np.array([7,8,9]), np.array([9,8,7])))
 
@@ -166,7 +166,7 @@ print(get_act_date())
 
 def sec_from_1970() -> int:
     now = np.datetime64('today', 'D')
-    past = np.datetime64('1970-01-01')
+    past = np.datetime64('1970-01-01T00:02:00')
     return int((now - past) / np.timedelta64(1, 's'))
 
 
