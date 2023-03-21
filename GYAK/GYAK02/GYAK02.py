@@ -15,9 +15,8 @@ import numpy as np
 #Ki: [[0,0],[0,0]]
 #create_array()
 
-def create_array(input_tuple=(2,2)):
-    arr = np.zeros(input_tuple)
-    return arr
+def create_array(input_tuple=(2,2)) -> np.array:
+    return np.zeros(input_tuple)
 
 
 # arr = create_array()
@@ -29,7 +28,7 @@ def create_array(input_tuple=(2,2)):
 #Ki: [[1,2],[3,1]]
 #set_one()
 
-def set_one(array: np.array):
+def set_one(array: np.array) -> np.array:
     np.fill_diagonal(array, 1)
     return array
 
@@ -42,9 +41,9 @@ def set_one(array: np.array):
 # Ki: [[1, 2], [3, 4]]
 # do_transpose()
 
-def do_transpose(array: np.array):
-    array = np.transpose(array)
-    return array
+def do_transpose(array: np.array) -> np.array:
+   return np.transpose(array)
+    
 
 # arr = [[1, 2], [3, 4]]
 # alma = do_transpose(np.array(arr))
@@ -56,9 +55,8 @@ def do_transpose(array: np.array):
 # Ki: [0.12, 0.17]
 # round_array()
 
-def round_array(array: np.array, roundNumber=2):
-    array = np.round(array, roundNumber)
-    return array
+def round_array(array: np.array, roundNumber = 2) -> np.array:
+    return np.round(array, roundNumber)
 
 # array = round_array([0.1223, 0.1675], 2)
 # print(array)
@@ -68,7 +66,7 @@ def round_array(array: np.array, roundNumber=2):
 # Ki: [[ True False False], [ True  True  True], [False False False]]
 # bool_array()
 
-def bool_array(array: np.array):
+def bool_array(array: np.array) -> np.array:
     return array.astype(bool)
     
 
@@ -80,12 +78,17 @@ def bool_array(array: np.array):
 # Ki: [[ True False False], [ True  True  True], [False False False]]
 # invert_bool_array()
 
+def invert_bool_array(array: np.array) -> np.array:
+    return np.invert(array.astype(bool))
 
-
-
+# print(invert_bool_array(np.array([[1, 0, 0], [1, 1, 1],[0, 0, 0]])))
 
 # Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
 # Be: [[1,2], [3,4]]
 # Ki: [1,2,3,4]
 # flatten()
 
+def flatten(array: np.array) -> np.array:
+    return array.flatten()
+
+# print(flatten(np.array([[1,2], [3,4]]))) 
