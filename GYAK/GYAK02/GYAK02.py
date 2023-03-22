@@ -47,8 +47,8 @@ def do_transpose(array: np.array) -> np.array:
     
 
 # arr = [[1, 2], [3, 4]]
-# alma = do_transpose(np.array(arr))
-# print(alma)
+# print(do_transpose(np.array(arr)))
+
 
 
 # Készíts egy olyan függvényt ami az array-ben lévő értékeket N tizenedjegyik kerekíti, ha nincs megadva ez a paraméter, akkor legyen az alapértelmezett a kettő 
