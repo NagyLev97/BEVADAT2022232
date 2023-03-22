@@ -1,4 +1,3 @@
-
 import numpy as np
 
 
@@ -92,4 +91,4 @@ def invert_bool_array(array: np.array) -> np.array:
 def flatten(array: np.array) -> np.array:
     return array.flatten()
 
-# print(flatten(np.array([[1,2], [3,4]])))
+# print(flatten(np.array([[1,2], [3,4]]))) 
