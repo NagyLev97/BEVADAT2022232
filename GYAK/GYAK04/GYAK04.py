@@ -1,4 +1,4 @@
-# %%
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -104,15 +104,15 @@ függvény neve: plot_population
 '''
 
 
-def plot_population(test_df: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
+def plot_population(test_df: pd.core.frame.DataFrame) -> plt.Figure:
     new_df = test_df.copy()
 
     fig, ax = plt.subplots()
 
     ax.bar(new_df['country'], new_df['population'])
 
-    ax.set_xlabel('Population (millions)')
-    ax.set_ylabel('Country')
+    ax.set_xlabel('Country')
+    ax.set_ylabel('Population (millions)')
     ax.set_title('Population of Countries')
 
     return fig
@@ -134,7 +134,7 @@ függvény neve: plot_area
 '''
 
 
-def plot_area(test_dict: pd.core.frame.DataFrame):
+def plot_area(test_dict: pd.core.frame.DataFrame) -> plt.Figure:
     new_df = test_dict.copy()
 
     fig, ax = plt.subplots()
