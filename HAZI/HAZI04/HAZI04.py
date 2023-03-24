@@ -24,7 +24,7 @@ def csv_to_df(path) -> pd.core.frame.DataFrame:
     df_data = pd.read_csv(path)
     return df_data
 
-student_perform = csv_to_df('StudentsPerformance.csv')
+#student_perform = csv_to_df('StudentsPerformance.csv')
 
 
 '''
