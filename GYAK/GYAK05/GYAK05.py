@@ -12,20 +12,14 @@ class KNNClassifier:
         self.test_split_ratio = test_split_ratio
 
     @property
-    def kValue(self):
+    def k_neighbors(self):
         return self.k
 
     @staticmethod
     def load_csv(csv_path:str) -> Tuple[np.ndarray, np.ndarray]:
         np.random.seed(42)
         dataset = np.genfromtxt(csv_path, delimiter=',')
-        np.random.shuffle(dataset)
         x,y = dataset[:,:-1], dataset[:,-1]
-        x[np.isnan(x)] = 3.5
-        y = np.delete(y, np.where(x < 0.0)[0], axis=0)
-        y = np.delete(y, np.where(x > 10.0)[0], axis=0)
-        x = np.delete(x, np.where(x < 0.0)[0], axis=0)
-        x = np.delete(x, np.where(x > 10.0)[0], axis=0)
         return x,y
 
     def train_test_split(self, features:np.ndarray, labels:np.ndarray):
@@ -56,6 +50,6 @@ class KNNClassifier:
         true_positive = (self.y_test == self.y_preds).sum()
         return true_positive / len(self.y_test) * 100
     
-    def plot_confusion_matrix(self) -> None:
+    def confusion_matrix(self) -> np.ndarray:
         conf_matrix = confusion_matrix(self.y_test, self.y_preds)
-        sns.heatmap(conf_matrix, annot=True)
+        return np.array(conf_matrix)
