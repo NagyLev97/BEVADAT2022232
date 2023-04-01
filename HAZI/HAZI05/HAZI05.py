@@ -33,14 +33,14 @@ class KNNClassifier:
         self.x_test, self.y_test = features.iloc[train_size:, :], labels.iloc[train_size:]
 
 
-    def euclidean(points:pd.DataFrame, element_of_x:pd.Series) -> pd.Series:
-        return ((points - element_of_x)**2).sum(axis=1)**(1/2)
+    def euclidean(self, element_of_x:pd.Series) -> pd.Series:
+        return ((self.x_train - element_of_x)**2).sum(axis=1)**(1/2)
     
 
 
     def predict(self, x_test:pd.DataFrame):
         labels_pred = []
-        for x_test_element in x_test:
+        for idx, x_test_element in x_test.iterrows():
             #távolságok meghatározása
             distances = self.euclidean(x_test_element)
             distances = pd.DataFrame({'distances': distances, 'labels': self.y_train})
