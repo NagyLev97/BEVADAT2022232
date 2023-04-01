@@ -38,7 +38,7 @@ class KNNClassifier:
         labels_pred = []
         for x_test_element in x_test:
             #távolságok meghatározása
-            distances = self.euclidean(self.x_train, x_test_element)
+            distances = self.euclidean(x_test_element)
             distances = np.array(sorted(zip(distances, self.y_train)))
 
             #leggyakoribb labelt kiszedjük
