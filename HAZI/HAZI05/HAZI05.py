@@ -62,7 +62,7 @@ class KNNClassifier:
         return confusion_matrix(self.y_test, self.y_preds)
     
     def best_k(self) -> Tuple[int, float]:
-        accuracy = 0
+        accuracy = 0.0
         idx = -1
         for i in range(1, 21):
             k = i
