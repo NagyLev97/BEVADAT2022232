@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import mode 
 from typing import Tuple
+import math
 
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
@@ -62,10 +63,10 @@ class KNNClassifier:
         return confusion_matrix(self.y_test, self.y_preds)
     
     def best_k(self) -> Tuple[int, float]:
-        accuracy = 0.0
+        accuracy = -math.inf
         idx = -1
         for i in range(1, 21):
-            k = i
+            self.k = i
             self.predict(self.x_test)
             new_accuracy = accuracy()
             if new_accuracy > accuracy:
