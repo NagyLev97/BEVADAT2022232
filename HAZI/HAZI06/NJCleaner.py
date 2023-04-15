@@ -24,7 +24,7 @@ class NJCleaner:
     def convert_scheduled_time_to_part_of_the_day(self) -> pd.DataFrame:
         df = pd.DatetimeIndex(self.data['scheduled_time']).hour.astype('float')
         self.data['part_of_the_day'] = pd.cut(df, bins=[0, 3, 7, 11, 15, 19, 23], 
-                                              labels=['early_monrning', 'morning', 'afternoon', 'evening', 'night', 'late_night']) 
+                                              labels=['early_morning', 'morning', 'afternoon', 'evening', 'night', 'late_night']) 
         self.data.drop(['scheduled_time'], axis=1, inplace=True) 
         return self.data
     
