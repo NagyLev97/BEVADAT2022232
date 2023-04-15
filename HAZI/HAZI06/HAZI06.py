@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 col_name = ['stop_sequence', 'from_id', 'to_id', 'status', 'line','type','day','part_of_the_day', 'delay']
-data = pd.read_csv('BEVADAT2022232\HAZI\HAZI06\data\\NJ.csv', skiprows=1, header=None, names=col_name)
+data = pd.read_csv('BEVADAT2022232\\HAZI\\HAZI06\\data\\NJ.csv', skiprows=1, header=None, names=col_name)
 
 X = data.iloc[:, :-1].values
 Y = data.iloc[:, -1].values.reshape(-1,1)
