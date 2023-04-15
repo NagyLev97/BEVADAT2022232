@@ -7,7 +7,7 @@ class NJCleaner:
         self.data = df
 
     def order_by_scheduled_time(self) -> pd.DataFrame:
-        self.data = self.data.sort_values('scheduled_time')
+        self.data = self.data.sort_values(by=['scheduled_time'])
         return self.data
     
     def drop_columns_and_nan(self) -> pd.DataFrame:
