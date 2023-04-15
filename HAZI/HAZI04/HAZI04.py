@@ -94,7 +94,7 @@ függvény neve: average_scores
 '''
 
 
-def average_scores(df_data: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
+def avarage_scores(df_data: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
     new_df = df_data.copy()
     new_df = new_df.groupby('parental level of education').mean()
     return new_df
@@ -244,7 +244,7 @@ függvény neve: ethnicity_pie_chart
 '''
 
 
-def ethnicity_pie_chart(df_data: pd.core.frame.DataFrame) -> plt.Figure:
+def ethinicity_pie_chart(df_data: pd.core.frame.DataFrame) -> plt.Figure:
     new_df = df_data.copy()
     group_df = new_df.groupby('race/ethnicity')['race/ethnicity'].count()
 
