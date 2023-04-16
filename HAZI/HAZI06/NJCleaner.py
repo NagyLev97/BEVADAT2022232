@@ -22,16 +22,17 @@ class NJCleaner:
         return self.data
     
     def convert_scheduled_time_to_part_of_the_day(self) -> pd.DataFrame:
-        df = pd.DatetimeIndex(self.data['scheduled_time']).hour.astype('float')
-        self.data['part_of_the_day'] = pd.cut(df, bins=[0, 3, 7, 11, 15, 19, 23], 
-                                              labels=['early_morning', 'morning', 'afternoon', 'evening', 'night', 'late_night']) 
-        self.data.drop(['scheduled_time'], axis=1, inplace=True) 
+        df = pd.DatetimeIndex(self.data['scheduled_time']).hour
+        self.data['part_of_the_day'] = pd.cut(df, bins=[-1, 3, 7, 11, 15, 19, 24], 
+                                              labels=[ 'late_night', 'early_morning', 'morning', 'afternoon', 'evening', 'night']) 
+        self.data.drop(columns=['scheduled_time'], inplace=True) 
         return self.data
-    
+
     def convert_delay(self) -> pd.DataFrame:
         max = self.data['delay_minutes'].astype('float').max()
-        self.data['delay'] = pd.cut(self.data['delay_minutes'].astype('float'), bins=[-1, 5, max], labels=[0, 1])
+        self.data['delay'] = pd.cut(self.data['delay_minutes'].astype('float'), bins=[-1, 4.999, max], labels=[0, 1])
         return self.data
+
     
     def drop_unnecessary_columns(self) -> pd.DataFrame:
         self.data.drop(['train_id', 'actual_time', 'delay_minutes'], axis=1, inplace=True)
@@ -39,7 +40,7 @@ class NJCleaner:
     
     def save_first_60k(self, path:str):
         cutted_df = self.data.head(60000)
-        cutted_df.to_csv(path)
+        cutted_df.to_csv(path, index=False)
 
     def prep_df(self, path:str='data/NJ.csv'):
         self.order_by_scheduled_time()
