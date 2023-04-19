@@ -8,6 +8,7 @@ class LinearRegression:
         self.lr = lr
         self.m = 0 #meredekség
         self.c = 0 #metszés az x tengellyel
+        
 
     def fit(self, X: np.array, y: np.array):
         self.X = X
