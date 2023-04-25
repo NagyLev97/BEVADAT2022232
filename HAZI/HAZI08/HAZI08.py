@@ -22,8 +22,8 @@ függvény neve: load_iris_data
 def load_iris_data():
     return load_iris()
 
-# iris = load_iris_data()
-# iris
+iris = load_iris_data()
+iris
 
 
 '''
