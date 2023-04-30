@@ -8,7 +8,7 @@ from scipy.stats import mode
 from sklearn.metrics import confusion_matrix
 from sklearn import datasets
 
-class KMeansOnDigit():
+class KMeansOnDigits():
     
 
     def __init__(self, n_clusters, random_state):
