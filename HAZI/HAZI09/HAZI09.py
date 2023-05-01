@@ -19,20 +19,20 @@ class KMeansOnDigits():
         self.digits = datasets.load_digits()
 
     def predict(self):
-        self.model = KMeans(self.n_clusters, self.random_state)
+        self.model = KMeans(n_clusters=self.n_clusters, random_state=self.random_state)
         self.clusters = self.model.fit_predict(self.digits.data)
     
     def get_labels(self):
-        result_array = np.zeros_like(self.n_clusters)
-        for cluster in range(10):
-            mask = self.n_clusters == cluster
+        result_array = np.zeros_like(self.clusters)
+        for cluster in range(self.n_clusters):
+            mask = (self.n_clusters == cluster)
             target = self.digits.target[mask]
             mode_value = mode(target)
             result_array[mask] = mode_value.mode[0]
-        return result_array
+        self.labels = result_array
     
     def calc_accuracy(self):
-        accuracy = accuracy_score(self.digits.targer, self.labels)
+        accuracy = accuracy_score(self.digits.target, self.labels)
         return round(accuracy, 2)
     
     def confusion_matrix(self):
