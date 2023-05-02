@@ -22,18 +22,26 @@ class KMeansOnDigits():
         self.model = KMeans(n_clusters=self.n_clusters, random_state=self.random_state)
         self.clusters = self.model.fit_predict(self.digits.data)
     
+    # def get_labels(self):
+    #     result_array = np.zeros_like(self.clusters)
+    #     for cluster in range(self.n_clusters):
+    #         mask = (self.n_clusters == cluster)
+    #         target = self.digits.target[mask]
+    #         mode_value = mode(target)
+    #         result_array[mask] = mode_value.mode[0]
+    #     self.labels = result_array
+
     def get_labels(self):
         result_array = np.zeros_like(self.clusters)
         for cluster in range(self.n_clusters):
-            mask = (self.n_clusters == cluster)
+            mask = (self.clusters == cluster)
             target = self.digits.target[mask]
-            mode_value = mode(target)
-            result_array[mask] = mode_value.mode[0]
+            mode = np.bincount(target).argmax()
+            result_array[mask] = mode
         self.labels = result_array
     
     def calc_accuracy(self):
-        accuracy = accuracy_score(self.digits.target, self.labels)
-        return round(accuracy, 2)
+        self.accuracy = round(np.mean(self.labels == self.digits.target), 2)
     
     def confusion_matrix(self):
         self.mat = confusion_matrix(self.digits.target, self.labels)
